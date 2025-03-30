@@ -17,5 +17,5 @@ function main(pattern: Pattern, type: Type): void{
     }
 }
 
-main(Pattern.STRATEGY, Type.SOLUTION);
+main(Pattern.STRATEGY, Type.PROBLEM);
 
