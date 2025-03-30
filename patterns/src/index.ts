@@ -1,5 +1,6 @@
 enum Pattern {
-    STRATEGY = 'strategy',
+    STRATEGY = 'Strategy',
+    FACTORYMETHOD = 'FactoryMethod',
 }
 
 enum Type {
@@ -17,5 +18,5 @@ function main(pattern: Pattern, type: Type): void{
     }
 }
 
-main(Pattern.STRATEGY, Type.PROBLEM);
+main(Pattern.FACTORYMETHOD, Type.SOLUTION);
 
