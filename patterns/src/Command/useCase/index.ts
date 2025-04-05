@@ -42,6 +42,6 @@ const light = new Light();
 const lightOnCommand = new LightOnCommand(light);
 const lightOffCommand = new LightOffCommand(light);
 
-const remoteController = new RemoteController(lightOnCommand, lightOffCommand);
-remoteController.clickOn();
+const lightRemoteController = new RemoteController(lightOnCommand, lightOffCommand);
+lightRemoteController.clickOn();
 
