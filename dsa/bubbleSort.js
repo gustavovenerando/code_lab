@@ -1,3 +1,9 @@
+/*
+O(N^2)
+Close to exatly N^2 steps
+2 types os steps: comparisons and swaps
+*/
+
 function bubbleSort(arr) {
     let isSorted = false;
     let lastIndexSorted = arr.length - 1;

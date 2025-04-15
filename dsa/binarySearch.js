@@ -1,3 +1,10 @@
+
+/*
+O(log n)
+Array length needs to double to increase one step
+1 type os steps: comparisons
+*/
+
 function binarySearch(arr, value) {
     lowerBound = 0; 
     upperBound = arr.length - 1;
