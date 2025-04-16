@@ -1,7 +1,7 @@
 /*
 O(N^2)
 Same category as bubble sort, but twice as fast -> N^2 / 2 steps
-2 types os steps: comparisons and swaps
+2 types of steps: comparisons and swaps
 */
 
 function selectionSort(arr) {

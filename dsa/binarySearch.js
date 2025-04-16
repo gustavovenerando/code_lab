@@ -2,7 +2,7 @@
 /*
 O(log n)
 Array length needs to double to increase one step
-1 type os steps: comparisons
+1 type of step: comparisons
 */
 
 function binarySearch(arr, value) {
