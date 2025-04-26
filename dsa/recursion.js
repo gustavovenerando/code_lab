@@ -17,9 +17,38 @@ function reverseStr(string) {
 
 }
 
+// O(N^2) -> overlapping subproblems
 function fibonnaci(number) {
-    if(number <= 1) return 1;
+    if(number === 0 || number === 1) return number;
     return fibonnaci(number - 1) + fibonnaci(number - 2);
+}
+
+// Dynamic Programming - Solving overlapping subproblems with Memoization
+// O(N) --> 2N - 1 steps
+function fibonnaciMemo(number, memo = {}) {
+    if (number === 0 || number === 1) return number;
+
+    if (!memo[number]){
+        memo[number] = fibonnaci(number - 1) + fibonnaci(number - 2);
+    }
+
+    return memo[number];
+}
+
+// Dynamic Programming - Solving overlapping subproblems Bottom Up technique
+// O(N) --> N steps
+function fibonnaciBottomUp(number) {
+    if (number === 0) return 0;
+
+    let a = 0, b = 1;
+
+    for (let i = 1; i < number; i++){
+        let temp = a;
+        a = b;
+        b = temp + a;
+    }
+
+    return b;
 }
 
 /*
@@ -35,6 +64,7 @@ function numberOfPaths(n) {
     return numberOfPaths(n - 1) + numberOfPaths(n - 2) + numberOfPaths(n - 3);
 }
 
+// O(N!)
 function anagram(str) {
     const result = [];
 
@@ -55,8 +85,6 @@ function anagram(str) {
     return result;
 }
 
-
-
 const arr = [1, 2, 3, 4, 5];
 const str = "abcde";
 
@@ -64,7 +92,9 @@ const str = "abcde";
 // const result = sum(arr);
 // const result = reverseStr(str);
 // const result = fibonnaci(6);
+// const result = fibonnaciMemo(6);
+// const result = fibonnaciBottomUp(6);
 // const result = numberOfPaths(3);
-const result = anagram('abcdef');
+// const result = anagram('abcdef');
 
 console.log("Result:", result);
