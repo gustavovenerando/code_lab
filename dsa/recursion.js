@@ -35,14 +35,36 @@ function numberOfPaths(n) {
     return numberOfPaths(n - 1) + numberOfPaths(n - 2) + numberOfPaths(n - 3);
 }
 
+function anagram(str) {
+    const result = [];
+
+    if(str.length === 1) return str[0];
+
+    const prevAnagrams = anagram(str.slice(1));
+
+    for (let anagram of prevAnagrams) {
+        for (let i = 0; i < anagram.length; i++) {
+            const substring = anagram.substring(0, i);
+            const substring2 = anagram.substring(i);
+            
+            result.push(substring + str[0] + substring2); 
+        }
+        result.push(anagram + str[0]);
+    }
+
+    return result;
+}
+
+
 
 const arr = [1, 2, 3, 4, 5];
 const str = "abcde";
 
-// const result = factorial(6);
+// const result = factorial(5);
 // const result = sum(arr);
 // const result = reverseStr(str);
 // const result = fibonnaci(6);
-const result = numberOfPaths(3);
+// const result = numberOfPaths(3);
+const result = anagram('abcdef');
 
 console.log("Result:", result);
