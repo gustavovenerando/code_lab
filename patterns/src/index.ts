@@ -3,6 +3,7 @@ enum Pattern {
     FACTORYMETHOD = 'FactoryMethod',
     ABSTRACTFACTORY = 'AbstractFactory',
     COMMAND = 'Command',
+    ADAPTER = 'Adapter',
 }
 
 enum Type {
@@ -11,13 +12,13 @@ enum Type {
     BOTH = 'both'
 }
 
-function main(pattern: Pattern, type: Type): void{
+function main(pattern: Pattern, type: Type, fileName: string): void{
     if (type === Type.BOTH) {
         import(`./${pattern}/${Type.PROBLEM}/index.ts`)
         import(`./${pattern}/${Type.USECASE}/index.ts`)
     } else {
-        import(`./${pattern}/${type}/index.ts`)
+        import(`./${pattern}/${type}/${fileName}.ts`)
     }
 }
 
-main(Pattern.COMMAND, Type.USECASE);
+main(Pattern.ADAPTER, Type.USECASE, 'example2');

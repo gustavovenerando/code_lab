@@ -1,11 +1,13 @@
-import { ITarget } from "./interface";
-
 /*
 Its about making two interfaces that are imcompatible, compatible
 Adapter wraps something to adapt to a different interface
 Takes as input multiple kinds of interfaces and output one interface
 The intent is not changing original behavior
 */
+
+interface ITarget {
+    request(): void
+}
 
 class Client {
     request(): void {
