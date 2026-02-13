@@ -1,7 +1,11 @@
 import 'dotenv/config';
-import { isMainThread } from "node:worker_threads";
-// import WorkerPool from './pool';
+import WorkerPool from './pool';
 
-// const x = new WorkerPool();
+const workerPool = new WorkerPool(__dirname + '/worker.ts', { num: 2 });
 
-console.log(process.env.HELLO + ' World');
+const tasks = [44, 40, 6, 10, 20, 30, 2];
+
+(async () => {
+    const result = await Promise.all(tasks.map((payload) => workerPool.runTask(payload)));
+    console.log("result:", result);
+})()
